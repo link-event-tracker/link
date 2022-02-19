@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 /**
  * handle requests for static files
  */
-// app.use(express.static(path.resolve(__dirname, '../client')));
+const eventController = require('./controllers/eventController.js');
 
 
 if(process.env.NODE_ENV === 'production'){
@@ -38,6 +38,11 @@ if(process.env.NODE_ENV === 'production'){
 /**
  * define route handlers
  */
+app.get('/:zipCode', eventController.getApiData, (req, res) => {
+  return res.status(200).send(JSON.stringify(res.locals.localEvents));
+});
+
+
 
 
 // catch-all route handler for any requests to an unknown route
