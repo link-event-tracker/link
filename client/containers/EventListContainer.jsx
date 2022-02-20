@@ -11,9 +11,9 @@ const eventMaker = (event, idx, props) => (
   </item>
 );
 
-const EventListContainer = () => (
+const EventListContainer = ({ eventList }) => (
   <Stack spacing={1}>
-    {/* {props.marketList.map((market, idx) => eventMaker(market, idx, props))} */}
+    {eventList.map((event, idx) => eventMaker(event, idx))}
   </Stack>
 );
 
