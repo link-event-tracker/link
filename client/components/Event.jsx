@@ -22,7 +22,7 @@ const Event = ({
       </div>
     </div>
     <div className="rightColumn">
-      <DateBox date={startDate} />
+      <DateBox startDate={startDate} />
       <div>{price}</div>
     </div>
   </div>

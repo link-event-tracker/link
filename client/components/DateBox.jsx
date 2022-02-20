@@ -1,13 +1,17 @@
 import React from 'react';
 
 const DateBox = ({
-  month,
-  dayDate
-}) => (
-  <div className="dateBox">
-    <div>{month}</div>
-    <div>{dayDate}</div>
-  </div>
-);
+  startDate
+}) => {
+  const jsDate = new Date(startDate);
+  console.log(startDate, jsDate);
+
+  return (
+    <div className="dateBox">
+      <div>{jsDate.toLocaleString('default', { month: 'long' })}</div>
+      <div>{jsDate.getDate()}</div>
+    </div>
+  );
+};
 
 export default DateBox;
