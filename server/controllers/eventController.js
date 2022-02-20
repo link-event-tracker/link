@@ -21,12 +21,12 @@ eventController.getApiData = async (req, res, next) => {
     for(let i = 0; i < tmData['_embedded'].events.length; i++) {
 
       // covert Time from military to standard
-      let newTime = moment(tmData['_embedded'].events[i].dates.start.localTime, 'HH:mm:ss').format('hh:mm A');
+      const newTime = moment(tmData['_embedded'].events[i].dates.start.localTime, 'HH:mm:ss').format('hh:mm A');
       
       //convert short date pattern to long date pattern
-      let eventDate = new Date (tmData['_embedded'].events[i].dates.start.localDate).toUTCString().slice(0, 16);
+      const eventDate = new Date (tmData['_embedded'].events[i].dates.start.localDate).toUTCString().slice(0, 16);
       
-      let apiData = {
+      const apiData = {
         id: i,
         postalCode: tmData['_embedded'].events[i]['_embedded'].venues[0].postalCode, //"10013"
         name: tmData['_embedded'].events[i].name,  //"Colbie Caillat"
@@ -46,19 +46,23 @@ eventController.getApiData = async (req, res, next) => {
       eventsArray.push(apiData);
 
       // //loop and create database
-      const ticketMasterSchema = `
-      INSERT INTO events [ AS ] (postal_code, name, classification, vendor_url, image, start_date, start_time, venue, city, state, address, longitude, latitude) 
-      VALUES (${apiData.postalCode}, ${apiData.name}, ${apiData.classification}, ${apiData.vendorUrl}, ${apiData.image}, ${apiData.startDate}, ${apiData.startTime}, ${apiData.venue}, ${apiData.city}, ${apiData.state}, ${apiData.address}, ${apiData.longitude}, ${apiData.latitude})`;
+      let ticketValue = [apiData.postalCode, apiData.name, apiData.classification, apiData.vendorUrl, apiData.image, apiData.startDate, apiData.startTime, apiData.venue, apiData.city, apiData.state, apiData.address, apiData.longitude, apiData.latitude];
+      let ticketQuery = 'INSERT INTO events(postal_code, name, classification, vendor_url, image, start_date, start_time, venue, city, state, address, longitude, latitude) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING *';
 
-      db.query(ticketMasterSchema);
+      let results = await new Promise((resolve, reject) => db.query(ticketQuery, ticketValue, (err, response) => {
+        if (err) {
+          reject(err);
+        } else {
+          console.log('successful db insertion', i);
+          resolve(response);
+        }
+      }));
       
       // //if needed to combine data
-      // // res.locals.events = {
+      // // res.locals.events = {                     
       // //   ...res.locals.ticketMaster,
       // //   ...res.locals.eventBright
       // // }
-
-      console.log('successful db insertion', i);
     }
 
     res.locals.localEvents = eventsArray;
