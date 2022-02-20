@@ -70,7 +70,6 @@ const App = () => {
     // <div id="app">
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      {/* <Button variant="contained">Contained</Button> */}
       <MainContainer />
     </ThemeProvider>
     // {/* </div> */}
