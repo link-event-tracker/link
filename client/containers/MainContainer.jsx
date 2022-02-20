@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 
@@ -10,12 +10,22 @@ import MapDisplay from '../components/MapDisplay';
 
 const MainContainer = () => {
   const [zip, setZip] = useState('');
-
+  const [eventList, setEventList] = useState([]);
+  let searchZip;
   console.log(zip);
 
-  if (zip.length === 5) {
-    console.log('fetching');
-  }
+  useEffect(() => {
+    if (zip.length === 5) {
+      fetch(`/api/${zip}`)
+        .then(res => res.json())
+        .then((data) => {
+          console.log('events', data);
+          setEventList(data);
+        })
+        .catch(console.error);
+    }
+  }, [zip]);
+  
 
   return (
     <Container>
@@ -24,7 +34,7 @@ const MainContainer = () => {
           <MainNav />
         </Grid>
         <Grid item xs={2}>
-          <EventsContainer zip={zip} setZip={setZip} />
+          <EventsContainer zip={zip} setZip={setZip} eventList={eventList} />
         </Grid>
         <Grid item xs={8}>
           <MapDisplay />

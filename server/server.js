@@ -38,8 +38,8 @@ if(process.env.NODE_ENV === 'production'){
 /**
  * define route handlers
  */
-app.get('/:zipCode', eventController.getApiData, (req, res) => {
-  return res.status(200).send(JSON.stringify(res.locals.localEvents));
+app.get('/api/:zipCode', eventController.getApiData, (req, res) => {
+  return res.status(200).json(res.locals.localEvents);
 });
 
 
