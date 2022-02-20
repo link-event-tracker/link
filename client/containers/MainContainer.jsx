@@ -4,7 +4,6 @@ import Grid from '@mui/material/Grid';
 
 
 import Button from '@mui/material/Button';
-
 import MainNav from '../components/MainNav';
 import EventsContainer from './EventsContainer';
 import MapDisplay from '../components/MapDisplay';
