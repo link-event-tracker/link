@@ -1,5 +1,9 @@
 import React, {useState} from 'react';
 import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
+
+
+import Button from '@mui/material/Button';
 
 import MainNav from '../components/MainNav';
 import EventsContainer from './EventsContainer';
@@ -16,9 +20,17 @@ const MainContainer = () => {
 
   return (
     <Container>
-      <MainNav />
-      <EventsContainer zip={zip} setZip={setZip} />
-      <MapDisplay />
+      <Grid container spacing={2}>
+        <Grid item xs={2}>
+          <MainNav />
+        </Grid>
+        <Grid item xs={2}>
+          <EventsContainer zip={zip} setZip={setZip} />
+        </Grid>
+        <Grid item xs={8}>
+          <MapDisplay />
+        </Grid>
+      </Grid>
     </Container>
   );
 };
