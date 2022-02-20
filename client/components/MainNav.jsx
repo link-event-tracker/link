@@ -1,14 +1,18 @@
 import React from 'react';
+import Stack from '@mui/material/Stack';
+import Divider from '@mui/material/Divider';
 
 const MainNav = (props) => (
-  <div className="eventNav">
-    <div>Logo</div>
-    <div>Dashboard</div>
-    <div>Saved Events</div>
-    <div>Billing Details</div>
-    <div>My Account</div>
-    <div>Settings</div>
-  </div>
+  <Stack spacing={1} 
+    alignItems="flex-start"
+    divider={<Divider orientation="horizontal" flexItem/>}>
+    <item>Logo</item>
+    <item>Dashboard</item>
+    <item>Save Events</item>
+    <item>Billing Details</item>
+    <item>My Account</item>
+    <item>Settings</item>
+  </Stack>
 );
 
 export default MainNav;
