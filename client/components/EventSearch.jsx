@@ -10,6 +10,7 @@ const EventSearch = ({zip,setZip}) => {
     <div className="dateBox">
       <TextField 
         margin="normal"
+        fullWidth
         id="zip" 
         label="Zip Code" 
         variant="outlined" 
