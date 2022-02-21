@@ -87,5 +87,6 @@ module.exports = {
   resolve: {
     // Enable importing JS / JSX files without specifying their extension
     extensions: ['.js', '.jsx'],
-  }
+  },
+  ignoreWarnings: [/Failed to parse source map/],
 };

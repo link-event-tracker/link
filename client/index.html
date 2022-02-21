@@ -10,33 +10,9 @@
         <header>
         </header>
         <div id="root"></div>
-        <div id="map"></div>
         <noscript>
             You need to enable JavaScript to run this app.
           </noscript>
-          <style>
-            #map {
-              height: 1100px;
-              width: 100%        
-            }
-          </style>
-          <script>
-            function initMap() {
-              var options = {
-                zoom: 15,
-                center: { lat: 33.933241, lng: -84.340288 },
-              };
-              var map = new google.maps.Map(document.getElementById('map'), options);
-              var marker = new google.maps.Marker({
-                position: { lat: 33.933241, lng: -84.340288 },
-                map: map,
-              });
-            }
-          </script>
-              <script defer
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFk5zzwelSvDP5WhyFfC5KaSYKiPzZzRE&callback=initMap">
-        </script>   
-          <script defer src="<https://maps.googleapis.com/maps/api/js?key=AIzaSyBFk5zzwelSvDP5WhyFfC5KaSYKiPzZzRE&callback=initMap>"></script>
           <script src="/dist/bundle.js"></script>
     </body>
 </html>
