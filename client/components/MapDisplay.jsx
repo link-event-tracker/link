@@ -1,8 +1,12 @@
 import React from 'react';
 
-const MapDisplay = (props) => (
-  <div className="mapDisplay">
+//include render/Status?
+
+const MapDisplay = ({center, zoom}) => (
+  <div id="map" className="mapDisplay">
   </div>
 );
+
+
 
 export default MapDisplay;

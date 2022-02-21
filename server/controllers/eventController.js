@@ -45,24 +45,6 @@ eventController.getApiData = async (req, res, next) => {
 
       eventsArray.push(apiData);
 
-      // //loop and create database
-      const ticketValue = [apiData.postalCode, apiData.name, apiData.classification, apiData.vendorUrl, apiData.image, apiData.startDate, apiData.startTime, apiData.venue, apiData.city, apiData.state, apiData.address, apiData.longitude, apiData.latitude];
-      const ticketQuery = 'INSERT INTO events(postal_code, name, classification, vendor_url, image, start_date, start_time, venue, city, state, address, longitude, latitude) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING *';
-
-      const results = await new Promise((resolve, reject) => db.query(ticketQuery, ticketValue, (err, response) => {
-        if (err) {
-          reject(err);
-        } else {
-          console.log('successful db insertion', i);
-          resolve(response);
-        }
-      }));
-      
-      // //if needed to combine data
-      // // res.locals.events = {                     
-      // //   ...res.locals.ticketMaster,
-      // //   ...res.locals.eventBright
-      // // }
     }
 
     res.locals.localEvents = eventsArray;

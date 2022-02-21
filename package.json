@@ -23,6 +23,7 @@
   "dependencies": {
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
+    "@googlemaps/js-api-loader": "^1.13.6",
     "@googlemaps/react-wrapper": "^1.1.24",
     "@mui/icons-material": "^5.4.2",
     "@mui/material": "^5.4.2",
@@ -48,6 +49,7 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@hot-loader/react-dom": "^17.0.2",
+    "@types/googlemaps": "^3.43.3",
     "babel-loader": "^8.2.3",
     "cross-env": "^7.0.3",
     "css-loader": "^6.6.0",
@@ -57,6 +59,7 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.5.3",
     "nodemon": "^2.0.15",
