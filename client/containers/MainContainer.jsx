@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { useState, useEffect } from 'react';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
@@ -11,19 +12,30 @@ import MapDisplay from '../components/MapDisplay';
 const MainContainer = () => {
   const [zip, setZip] = useState('');
   const [eventList, setEventList] = useState([]);
-  // const [clicks, setClicks] = useState([]); //google maps
-  // const [zoom, setZoom] = (3); //google maps
-  // const [center, setCenter] = useState({
-  //   lat: 0,
-  //   lng: 0,
-  // }); //google maps
+  const [infoWindow, setInfoWindow] = useState(false);
+  const [activeMarker, setActiveMarker] = useState({});
+  const [selectedPlace, setSelectedPlace] = useState({});
 
   // const apiKey = 'AIzaSyBFk5zzwelSvDP5WhyFfC5KaSYKiPzZzRE';
+
 
   let searchZip;
 
   console.log(zip);
 
+  const markerClicker = (selected, marker) => {
+    setSelectedPlace(selected);
+    setActiveMarker(marker);
+    setInfoWindow(true);
+  };
+
+  const closeWindow = () => {
+    if (infoWindow === true) {
+      setInfoWindow(false);
+      setActiveMarker(null);
+    }
+  };
+  
   useEffect(() => {
     if (zip.length === 5) {
       fetch(`/api/${zip}`)
@@ -35,7 +47,6 @@ const MainContainer = () => {
         .catch(console.error);
     }
   }, [zip]);
-  
 
   return (
     <Container sx={{ p: 2 }}>
@@ -47,7 +58,7 @@ const MainContainer = () => {
           <EventsContainer zip={zip} setZip={setZip} eventList={eventList}/>
         </Grid>
         <Grid item xs={7}>
-          <MapDisplay />
+          <MapDisplay eventList={eventList} infoWindow={infoWindow} activeMarker={activeMarker} selectedPlace={selectedPlace} markerClicker={markerClicker} closeWindow={closeWindow} />
         </Grid>
       </Grid>
     </Container>
