@@ -13,11 +13,11 @@ const MapDisplay = ({google, infoWindow, activeMarker, selectedPlace, markerClic
 
   // const features = eventList.map(el => el = {'position': new google.maps.latLng(eventList.latitude, eventList.longitude)});
 
-//  new google.maps.Marker({
-//   position: new google.maps.LatLng(40.730610, -73.935242)
-//   map: map,
-//   icon: iconBase + 'parking_lot_maps.png'
-// });
+  //  new google.maps.Marker({
+  //   position: new google.maps.LatLng(40.730610, -73.935242)
+  //   map: map,
+  //   icon: iconBase + 'parking_lot_maps.png'
+  // });
 
   const markers = eventList.map((event, i) => {
     <Marker id={i} event={event} onClick={markerClicker} name={'Insert Label'}/>
