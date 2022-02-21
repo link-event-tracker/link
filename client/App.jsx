@@ -16,7 +16,7 @@ const App = () => {
         ? {
           // palette values for light mode
           primary: {
-            main: '#097d76',
+            main: '#03676c',
           },
           secondary: {
             main: 'rgb(6, 87, 82)',
@@ -34,7 +34,7 @@ const App = () => {
           },
           background: {
             paper: 'rgba(4,31,43,0.74)',
-            default: '#073a50',
+            default: '#3e717c',
           },
         }
         : {
@@ -57,7 +57,7 @@ const App = () => {
           },
           background: {
             paper: 'rgba(4,31,43,0.74)',
-            default: '#073a50',
+            default: '#3e717c',
           }
         }),
     },
