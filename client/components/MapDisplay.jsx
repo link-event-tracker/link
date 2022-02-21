@@ -1,36 +1,44 @@
+/* eslint-disable max-len */
 import React, { useState, useEffect, useRef } from 'react';
+import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 
 //include render/Status?
 
-const MapDisplay = ({
-  center, 
-  zoom,
-  onClick,
-  onIdle,
-  children,
-  ...options
-}) => {
+const MapDisplay = ({google, infoWindow, activeMarker, selectedPlace, markerClicker, closeWindow, eventList}) => {
 
-  const ref = useRef(null);
-  const [map, setMap] = useState();
+  const mapStyles = {
+    width: '100%',
+    height: '100%'
+  };
 
-  useEffect(() => {
-    if (ref.current && !map) {
-      setMap(new window.google.maps.Map(ref.current, {}));
-    }
-  }, [ref, map]);
+  const markers = eventList.map((event, i) => {
+    <Marker id={i} event={event} onClick={markerClicker} name={'Kenyatta International Convention Centre'}/>
+  });
 
-  React.useDeepCompareEffectForMaps(() => {
-    if (map) {
-      map.setOptions(options);
-    }
-  }, [map, options]);
-
-  return <div id="map" ref={ref} className="googlemap" style="width=50%"/>;
+  return (
+    <Map google={google}
+      zoom={14}
+      style={mapStyles}
+      initialCenter={
+        {
+          lat: 42.730610,
+          lng: -73.935242
+        }
+      } >
+      <Marker onClick={markerClicker} name={'Kenyatta International Convention Centre'}/>
+      <InfoWindow marker={activeMarker} visible={infoWindow} onClose={closeWindow}>
+        <div>
+          <h4>{selectedPlace.name}</h4>
+        </div>
+      </InfoWindow>
+    </Map>
+  );
 };
 
 
 
 
 
-export default MapDisplay;
+export default GoogleApiWrapper({
+  apiKey: 'AIzaSyBFk5zzwelSvDP5WhyFfC5KaSYKiPzZzRE'
+})(MapDisplay);

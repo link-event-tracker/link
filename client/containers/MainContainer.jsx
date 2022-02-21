@@ -8,27 +8,34 @@ import Button from '@mui/material/Button';
 import MainNav from '../components/MainNav';
 import EventsContainer from './EventsContainer';
 import MapDisplay from '../components/MapDisplay';
-import MapMarker from '../components/MapMarker';
-
-import { Wrapper, Status } from '@googlemaps/react-wrapper';
 
 const MainContainer = () => {
   const [zip, setZip] = useState('');
   const [eventList, setEventList] = useState([]);
-  const [clicks, setClicks] = useState([]); //google maps
-  const [zoom, setZoom] = (3); //google maps
-  const [center, setCenter] = useState({
-    lat: 0,
-    lng: 0,
-  }); //google maps
-  const [position, setPosition] = useState();
+  const [infoWindow, setInfoWindow] = useState(false);
+  const [activeMarker, setActiveMarker] = useState({});
+  const [selectedPlace, setSelectedPlace] = useState({});
 
-  // const apiK;ey = 'AIzaSyBFk5zzwelSvDP5WhyFfC5KaSYKiPzZzRE';
+  // const apiKey = 'AIzaSyBFk5zzwelSvDP5WhyFfC5KaSYKiPzZzRE';
+
 
   let searchZip;
 
   console.log(zip);
 
+  const markerClicker = (selected, marker) => {
+    setSelectedPlace(selected);
+    setActiveMarker(marker);
+    setInfoWindow(true);
+  };
+
+  const closeWindow = () => {
+    if (infoWindow === true) {
+      setInfoWindow(false);
+      setActiveMarker(null);
+    }
+  };
+  
   useEffect(() => {
     if (zip.length === 5) {
       fetch(`/api/${zip}`)
@@ -41,10 +48,6 @@ const MainContainer = () => {
     }
   }, [zip]);
 
-  const render = (status) => {
-    return <h1>{status}</h1>;
-  };
-  
   return (
     <Container sx={{ p: 2 }}>
       <Grid container spacing={2}>
@@ -55,11 +58,7 @@ const MainContainer = () => {
           <EventsContainer zip={zip} setZip={setZip} eventList={eventList} />
         </Grid>
         <Grid item xs={7}>
-          <Wrapper apiKey={'AIzaSyBFk5zzwelSvDP5WhyFfC5KaSYKiPzZzRE'} render={render}>
-            <MapDisplay center={center} zoom={zoom} >
-              <MapMarker position={position}/>
-            </MapDisplay>
-          </Wrapper>
+          <MapDisplay eventList={eventList} infoWindow={infoWindow} activeMarker={activeMarker} selectedPlace={selectedPlace} markerClicker={markerClicker} closeWindow={closeWindow} />
         </Grid>
       </Grid>
     </Container>
