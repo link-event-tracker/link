@@ -1,0 +1,151 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#map-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+
+#map-container button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+#locations-panel {
+  position: absolute;
+  left: 0;
+  width: 22em;
+  top: 0;
+  bottom: 0;
+  overflow-y: auto;
+  background: white;
+  padding: 0.5em;
+  box-sizing: border-box;
+}
+
+@media only screen and (max-width: 876px) {
+  #map {
+    left: 0;
+    bottom: 50%;
+  }
+
+  #locations-panel {
+    top: 50%;
+    right: 0;
+    width: unset;
+  }
+}
+
+#locations-panel-list > header {
+  padding: 1.4em 1.4em 0 1.4em;
+}
+
+#locations-panel-list h1.search-title {
+  font-size: 1em;
+  font-weight: 500;
+  margin: 0;
+}
+
+#locations-panel-list h1.search-title > img {
+  vertical-align: bottom;
+  margin-top: -1em;
+}
+
+#locations-panel-list .search-input {
+  width: 100%;
+  margin-top: 0.8em;
+  position: relative;
+}
+
+#locations-panel-list .search-input input {
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.3em;
+  height: 2.2em;
+  box-sizing: border-box;
+  padding: 0 2.5em 0 1em;
+  font-size: 1em;
+}
+
+#locations-panel-list .search-input-overlay {
+  position: absolute;
+}
+
+#locations-panel-list .search-input-overlay.search {
+  right: 2px;
+  top: 2px;
+  bottom: 2px;
+  width: 2.4em;
+}
+
+#locations-panel-list .search-input-overlay.search button {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.2em;
+  color: black;
+  background: transparent;
+}
+
+#locations-panel-list .search-input-overlay.search .icon {
+  margin-top: 0.05em;
+  vertical-align: top;
+}
+
+#locations-panel-list .section-name {
+  font-weight: 500;
+  font-size: 0.9em;
+  margin: 1.8em 0 1em 1.5em;
+}
+
+#locations-panel-list .location-result {
+  position: relative;
+  padding: 0.8em 3.5em 0.8em 1.4em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+}
+
+#locations-panel-list .location-result:first-of-type {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+#locations-panel-list .location-result:last-of-type {
+  border-bottom: none;
+}
+
+#locations-panel-list .location-result.selected {
+  outline: 2px solid #4285f4;
+}
+
+#locations-panel-list button.select-location {
+  margin-bottom: 0.6em;
+  text-align: left;
+}
+
+#locations-panel-list .location-result h2.name {
+  font-size: 1em;
+  font-weight: 500;
+  margin: 0;
+}
+
+#locations-panel-list .location-result .address {
+  font-size: 0.9em;
+  margin-bottom: 0.5em;
+}
+
+#location-results-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
