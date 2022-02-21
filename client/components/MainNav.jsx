@@ -4,6 +4,8 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
+import Logo from './Linklogo.png';
 
 const Item = styled(Box)(({ theme }) => ({
   backgroundColor: 'inherit',
@@ -30,20 +32,26 @@ const Circle = styled(Box)(() => ({
   marginRight: 10
 }));
 
-// const Logo = styled(Box)(() => ({
-//   backgroundColor: 'blue',
-//   height: '25px',
-//   width: '25px',
-//   borderRadius: '50%',
-//   marginRight: 10
+// const addLogo = styled(Box)(({ theme }) => ({
+//   backgroundColor: 'inherit',
+//   ...theme.typography.body2,
+//   padding: theme.spacing(1),
+//   height: '25vh',
+//   backgroundImage: `url(${'./Linklogo.png'})`,
+//   display: 'flex',
+//   alignItems: 'center',
 // }));
 
 const MainNav = (props) => (
-  
   <StyledStack>
-    <Item>
-      <img src= {require('./Linklogo.png')} />
-    </Item>
+    <Box
+      style={{
+        backgroundImage: `url(${Logo})`,
+        backgroundSize: 'cover',
+        height: '5vh',
+        paddingBottom: '70px'
+      }}
+    />
     <Item>
       <Circle/>
       Dashboard
