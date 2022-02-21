@@ -42,7 +42,7 @@ const MainNav = (props) => (
   
   <StyledStack>
     <Item>
-      <img src= {require('./Linklogo.png')} />
+      {/* <img src= {require('./Linklogo.png')} /> */}
     </Item>
     <Item>
       <Circle/>
