@@ -1,4 +1,7 @@
 import React from 'react';
+import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
+import Stack from '@mui/material/Stack';
 
 const DateBox = ({
   startDate
@@ -7,10 +10,12 @@ const DateBox = ({
   console.log(startDate, jsDate);
 
   return (
-    <div className="dateBox">
-      <div>{jsDate.toLocaleString('default', { month: 'long' })}</div>
-      <div>{jsDate.getDate()}</div>
-    </div>
+    <Paper style={{backgroundColor: 'secondary'}}>
+      <Stack spacing={2}>
+        <div>{jsDate.toLocaleString('default', { month: 'short' }).toUpperCase()}</div>
+        <div>{jsDate.getDate()}</div>
+      </Stack>
+    </Paper>
   );
 };
 
