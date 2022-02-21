@@ -44,7 +44,7 @@ const MainContainer = () => {
           <MainNav />
         </Grid>
         <Grid item xs={3}>
-          <EventsContainer zip={zip} setZip={setZip} eventList={eventList} />
+          <EventsContainer zip={zip} setZip={setZip} eventList={eventList}/>
         </Grid>
         <Grid item xs={7}>
           <MapDisplay />
