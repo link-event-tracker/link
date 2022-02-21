@@ -5,7 +5,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import MainContainer from './containers/MainContainer';
 
 
-import Button from '@mui/material/Button';
 
 const App = () => {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
@@ -62,6 +61,43 @@ const App = () => {
           }
         }),
     },
+    typography: {
+      h3: {
+        fontSize: '1.8rem',
+        fontFamily: '"Lora"',
+      },
+      h6: {
+        fontFamily: '"Lora"',
+      },
+      body2: {
+        fontFamily: '"Lato"',
+      },
+      body1: {
+        fontFamily: '"Lato"',
+      },
+      h5: {
+        fontSize: '1.1rem',
+        fontFamily: '"Lora"',
+      },
+      button: {
+        fontFamily: '"Open sans"',
+      },
+      h2: {
+        fontFamily: '"Lora"',
+      },
+      h1: {
+        fontFamily: '"Merriweather"',
+      },
+      subtitle2: {
+        fontFamily: '"Arial"',
+      },
+      subtitle1: {
+        fontFamily: '"Lora"',
+      },
+      h4: {
+        fontFamily: '"Lora"',
+      },
+    }
   });
 
   const theme = React.useMemo(
@@ -134,42 +170,42 @@ const App = () => {
 //               },
 //             }),
 //         },
-//         typography: {
-//           h3: {
-//             fontSize: '1.8rem',
-//             fontFamily: '"Lora"',
-//           },
-//           h6: {
-//             fontFamily: '"Lora"',
-//           },
-//           body2: {
-//             fontFamily: '"Lato"',
-//           },
-//           body1: {
-//             fontFamily: '"Lato"',
-//           },
-//           h5: {
-//             fontFamily: '"Lora"',
-//           },
-//           button: {
-//             fontFamily: '"Open sans"',
-//           },
-//           h2: {
-//             fontFamily: '"Lora"',
-//           },
-//           h1: {
-//             fontFamily: '"Merriweather"',
-//           },
-//           subtitle2: {
-//             fontFamily: '"Arial"',
-//           },
-//           subtitle1: {
-//             fontFamily: '"Lora"',
-//           },
-//           h4: {
-//             fontFamily: '"Lora"',
-//           },
-//         }
+// typography: {
+//   h3: {
+//     fontSize: '1.8rem',
+//     fontFamily: '"Lora"',
+//   },
+//   h6: {
+//     fontFamily: '"Lora"',
+//   },
+//   body2: {
+//     fontFamily: '"Lato"',
+//   },
+//   body1: {
+//     fontFamily: '"Lato"',
+//   },
+//   h5: {
+//     fontFamily: '"Lora"',
+//   },
+//   button: {
+//     fontFamily: '"Open sans"',
+//   },
+//   h2: {
+//     fontFamily: '"Lora"',
+//   },
+//   h1: {
+//     fontFamily: '"Merriweather"',
+//   },
+//   subtitle2: {
+//     fontFamily: '"Arial"',
+//   },
+//   subtitle1: {
+//     fontFamily: '"Lora"',
+//   },
+//   h4: {
+//     fontFamily: '"Lora"',
+//   },
+// }
 //       }
 //     )
 // );
