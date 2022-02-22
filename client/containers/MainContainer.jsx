@@ -48,14 +48,15 @@ const MainContainer = () => {
 
   return (
     <Container sx={{ p: 2 }}>
+      <MainNav/>
       <Grid container spacing={2}>
-        <Grid item xs={2}>
-          <MainNav/>
-        </Grid>
+        {/* <Grid item xs={2}>
+          
+        </Grid> */}
         <Grid item xs={3}>
           <EventsContainer zip={zip} setZip={setZip} eventList={eventList}/>
         </Grid>
-        <Grid item xs={7}>
+        <Grid item xs={9}>
           <MapDisplay eventList={eventList} infoWindow={infoWindow} activeMarker={activeMarker} selectedPlace={selectedPlace} markerClicker={markerClicker} closeWindow={closeWindow} zip={zip} />
         </Grid>
       </Grid>
