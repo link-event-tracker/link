@@ -3,6 +3,7 @@ import DateBox from './DateBox';
 import ShareButton from './ShareButton';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
+import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import SaveIcon from '@mui/icons-material/Save';
@@ -16,9 +17,24 @@ const Event = ({
   city,
   state,
   price,
-  vendorUrl
+  vendorUrl,
+  image
 }) => {
   const modVenue = venue.replace(`- ${city}`, '');
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? 'event-modal' : undefined;
+
   console.log('url', vendorUrl);
   return (
     <Paper sx={{
@@ -37,7 +53,42 @@ const Event = ({
       </Grid>
       <Grid container justifyContent="space-between">
         <Grid item xs={6}>
-          <Button startIcon={<BookmarkAddIcon />} variant='text'>SAVE</Button>
+          <Button aria-describedby={id}
+            onClick={handleClick} 
+            startIcon={<BookmarkAddIcon />} 
+            variant='text'>MORE INFO</Button>
+          <Popover
+            id={id}
+            open={open}
+            anchorEl={anchorEl}
+            onClose={handleClose}
+            anchorOrigin={{
+              vertical: 'center',
+              horizontal: 'right',
+            }}
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'left',
+            }}
+          >
+            <a href={vendorUrl} target="_blank" rel="noopener noreferrer">
+              <Paper x={{ p: 2 }}>
+              
+                <img
+                  src={image}
+                  srcSet={image}
+                  alt={name}
+                  loading="lazy"
+                  width='300px'
+                  height='200px'
+                />
+           
+                <Typography variant='h5' align='center' >
+                  Click to purchase tickets
+                </Typography>
+              </Paper>
+            </a>
+          </Popover>
         </Grid>
         <Grid item xs={6}>
           {/* <Button variant='text'>SHARE</Button> */}
