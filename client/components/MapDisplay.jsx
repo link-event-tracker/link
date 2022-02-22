@@ -10,7 +10,7 @@ const MapDisplay = ({google, infoWindow, activeMarker, selectedPlace, markerClic
 
   const mapStyles = {
     marginTop: '20px',
-    width: '82vw',
+    width: '79vw',
     height: '83vh'
   };
 

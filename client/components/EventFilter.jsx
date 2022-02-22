@@ -50,13 +50,8 @@ const EventFilter = ({filters, handleFilters}) => {
       >
         <Button value="Music" aria-label="Music">
           <Circle onClick={() => { console.log('music'); }}>
-<<<<<<< HEAD
             <MusicNoteSharpIcon sx={{ color: '#E8E8E8', 
               fontSize: 35 }}/>
-=======
-            <MusicNoteSharpIcon sx={{ color: '#ffffff', 
-              fontSize: 23, margin: 'auto'}}/>
->>>>>>> dev
           </Circle>
         </Button>
         <Button value="Sports" aria-label="Sports">

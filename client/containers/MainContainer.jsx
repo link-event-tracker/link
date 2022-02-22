@@ -148,7 +148,7 @@ const MainContainer = () => {
           {/* <Grid item xs={2}>
             
           </Grid> */}
-          <Grid minWidth="300px" item xs={1.85}>
+          <Grid minWidth="300px" item xs={2.2}>
             <EventsContainer zip={zip} setZip={setZip} eventList={eventList} filters={filters} handleFilters={handleFilters} />
           </Grid>
           <Grid item xs={9}>

@@ -34,16 +34,9 @@ const App = () => {
             // light: '#CAE4DB', //changed to 
           },
           text: {
-<<<<<<< HEAD
             primary: '#f9f9f9',
             secondary: '#929191',
             // primary: '#00303F', //changed to cerulean
-=======
-            // primary: '#f9f9f9',
-            // secondary: '#929191',
-            primary: '#f9f9f9', //changed to cerulean
-            secondary: '#929191'
->>>>>>> dev
           },
           background: {
             paper: 'rgba(4,31,43,0.74)',
