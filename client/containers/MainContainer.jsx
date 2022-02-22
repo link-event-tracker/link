@@ -13,6 +13,12 @@ const MainContainer = () => {
   const [infoWindow, setInfoWindow] = useState(false);
   const [activeMarker, setActiveMarker] = useState({});
   const [selectedPlace, setSelectedPlace] = useState({});
+  const [filters, setFilters] = useState([]);
+
+  const handleFilters = (event, newFilters) => {
+    setFilters(newFilters);
+  };
+
 
   // const apiKey = 'AIzaSyBFk5zzwelSvDP5WhyFfC5KaSYKiPzZzRE';
 
@@ -35,8 +41,10 @@ const MainContainer = () => {
   };
   
   useEffect(() => {
+    console.log('filters front', filters);
     if (zip.length === 5) {
-      fetch(`/api/${zip}`)
+      const reqFilters = JSON.stringify(filters);
+      fetch(`/api/${zip}/${reqFilters}`)
         .then(res => res.json())
         .then((data) => {
           console.log('events', data);
@@ -47,7 +55,7 @@ const MainContainer = () => {
     else {
       setEventList([]);
     }
-  }, [zip]);
+  }, [zip, filters]);
 
   return (
     <div className='top' style={{width: '100vw', height:'100vh'}}>
@@ -57,8 +65,8 @@ const MainContainer = () => {
           {/* <Grid item xs={2}>
             
           </Grid> */}
-          <Grid item xs={1.5}>
-            <EventsContainer zip={zip} setZip={setZip} eventList={eventList}/>
+          <Grid item xs={3}>
+            <EventsContainer zip={zip} setZip={setZip} eventList={eventList} filters={filters} handleFilters={handleFilters} />
           </Grid>
           <Grid item xs={9}>
             <MapDisplay eventList={eventList} infoWindow={infoWindow} activeMarker={activeMarker} selectedPlace={selectedPlace} markerClicker={markerClicker} closeWindow={closeWindow} zip={zip} />

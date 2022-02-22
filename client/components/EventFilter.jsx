@@ -10,6 +10,9 @@ import TheatersIcon from '@mui/icons-material/Theaters';
 // import SvgIcon from '@mui/material/SvgIcon';
 import { yellow } from '@mui/material/colors';
 
+import ToggleButton from '@mui/material/ToggleButton';
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+
 const Circle = styled(Box)(() => ({
   backgroundColor: 'rgba(4,31,43,0.74)',
   height: '30px',
@@ -23,28 +26,46 @@ const Circle = styled(Box)(() => ({
   justifyContent: 'center'
 }));
 
-const EventFilter = ({func1, func2,func3,func4,func5}) => {
+const EventFilter = ({filters, handleFilters}) => {
+  
+ 
   return(<div className="eventNav">
     <Stack direction="row">
-      <Circle onClick={() => { console.log('onClick'); }}>
-        <MusicNoteSharpIcon sx={{ color: '#ffffff', 
-          fontSize: 23 }}/>
-      </Circle>
-      <Circle onClick={() => { console.log('onClick'); }}>
-        <SportsFootballIcon sx={{ color: '#ffffff', 
-          fontSize: 22}}/>
-      </Circle>
-      <Circle onClick={() => { console.log('onClick'); }}>
-        <TheaterComedyIcon sx={{ color: '#ffffff', fontSize: 20}}/>
-      </Circle>
-      <Circle onClick={() => { console.log('onClick'); }}>
-        <FamilyRestroomIcon sx={{ color: '#ffffff', 
-          fontSize: 23 }}/>
-      </Circle>
-      <Circle onClick={() => { console.log('onClick'); }}>
-        <TheatersIcon sx={{ color: '#ffffff', 
-          fontSize: 23}}/>
-      </Circle>
+      <ToggleButtonGroup
+        value={filters}
+        onChange={handleFilters}
+        aria-label="search filters"
+      >
+        <ToggleButton value="Music" aria-label="Music">
+          <Circle onClick={() => { console.log('music'); }}>
+            <MusicNoteSharpIcon sx={{ color: '#ffffff', 
+              fontSize: 23 }}/>
+          </Circle>
+        </ToggleButton>
+        <ToggleButton value="Sports" aria-label="Sports">
+          <Circle onClick={() => { console.log('sports'); }}>
+            <SportsFootballIcon sx={{ color: '#ffffff', 
+              fontSize: 22}}/>
+          </Circle>
+        </ToggleButton>
+        <ToggleButton value="Arts & Theatre" aria-label="Arts & Theatre">
+          <Circle onClick={() => { console.log('arts & theatre'); }}>
+            <TheaterComedyIcon sx={{ color: '#ffffff', fontSize: 20}}/>
+          </Circle>
+        </ToggleButton>
+        <ToggleButton value="Family" aria-label="Family">
+          <Circle onClick={() => { console.log('family'); }}>
+            <FamilyRestroomIcon sx={{ color: '#ffffff', 
+              fontSize: 23 }}/>
+          </Circle>
+        </ToggleButton>
+        <ToggleButton value="Film" aria-label="Film">
+          <Circle onClick={() => { console.log('film'); }}>
+            <TheatersIcon sx={{ color: '#ffffff', 
+              fontSize: 23}}/>
+          </Circle>
+        </ToggleButton> 
+      </ToggleButtonGroup>
     </Stack>
   </div>
   );
