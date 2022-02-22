@@ -9,8 +9,9 @@ const MapDisplay = ({google, infoWindow, activeMarker, selectedPlace, markerClic
   
 
   const mapStyles = {
-    width: '100%',
-    height: '100%'
+    marginTop: '20px',
+    width: '85vw',
+    height: '80vh'
   };
 
   // const features = eventList.map(el => el = {'position': new google.maps.latLng(eventList.latitude, eventList.longitude)});
@@ -94,7 +95,7 @@ const MapDisplay = ({google, infoWindow, activeMarker, selectedPlace, markerClic
   
 
   return (
-    <Map google={google}
+    <Map id='mello' className='hello' google={google}
       zoom={14}
       style={mapStyles}
       initialCenter={
