@@ -56,11 +56,7 @@ const MainContainer = () => {
           <EventsContainer zip={zip} setZip={setZip} eventList={eventList}/>
         </Grid>
         <Grid item xs={7}>
-<<<<<<< HEAD
-          <MapDisplay/>
-=======
           <MapDisplay eventList={eventList} infoWindow={infoWindow} activeMarker={activeMarker} selectedPlace={selectedPlace} markerClicker={markerClicker} closeWindow={closeWindow} zip={zip} />
->>>>>>> dev
         </Grid>
       </Grid>
     </Container>
