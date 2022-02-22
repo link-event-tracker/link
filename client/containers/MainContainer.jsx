@@ -50,20 +50,22 @@ const MainContainer = () => {
   }, [zip]);
 
   return (
-    <Container sx={{ p: 2 }}>
-      <MainNav/>
-      <Grid container spacing={2}>
-        {/* <Grid item xs={2}>
-          
-        </Grid> */}
-        <Grid item xs={3}>
-          <EventsContainer zip={zip} setZip={setZip} eventList={eventList}/>
+    <div className='top' style={{width: '100vw', height:'100vh'}}>
+      <Container maxWidth={false} sx={{ p: 2}}>
+        <MainNav/>
+        <Grid container spacing={2}>
+          {/* <Grid item xs={2}>
+            
+          </Grid> */}
+          <Grid item xs={1.5}>
+            <EventsContainer zip={zip} setZip={setZip} eventList={eventList}/>
+          </Grid>
+          <Grid item xs={9}>
+            <MapDisplay eventList={eventList} infoWindow={infoWindow} activeMarker={activeMarker} selectedPlace={selectedPlace} markerClicker={markerClicker} closeWindow={closeWindow} zip={zip} />
+          </Grid>
         </Grid>
-        <Grid item xs={9}>
-          <MapDisplay eventList={eventList} infoWindow={infoWindow} activeMarker={activeMarker} selectedPlace={selectedPlace} markerClicker={markerClicker} closeWindow={closeWindow} zip={zip} />
-        </Grid>
-      </Grid>
-    </Container>
+      </Container>
+    </div>
   );
 };
 

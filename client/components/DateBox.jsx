@@ -14,7 +14,8 @@ const DateBox = ({
   return (
     <Box sx={{
       backgroundColor: 'secondary.main',
-      justifyContent: 'center'
+      justifyContent: 'center',
+      borderRadius: '15%',
     }}>
       <Stack spacing={0}>
         <Typography align='center' variant="h5">

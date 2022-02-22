@@ -35,7 +35,7 @@ const Item = styled(Box)(({ theme }) => ({
 
 const StyledStack = styled(Stack)(() => ({
   backgroundColor: 'white',
-  height: '100vh',
+  height: '980vh',
   padding: '10px',
   marginLeft: '-24px' 
 }));
