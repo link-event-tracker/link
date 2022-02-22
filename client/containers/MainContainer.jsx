@@ -44,6 +44,9 @@ const MainContainer = () => {
         })
         .catch(console.error);
     }
+    else {
+      setEventList([]);
+    }
   }, [zip]);
 
   return (
@@ -54,7 +57,7 @@ const MainContainer = () => {
           {/* <Grid item xs={2}>
             
           </Grid> */}
-          <Grid item xs={1.5}>
+          <Grid  item xs={1.5}>
             <EventsContainer zip={zip} setZip={setZip} eventList={eventList}/>
           </Grid>
           <Grid item xs={9}>

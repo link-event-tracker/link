@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 import React, { useState, useEffect, useRef } from 'react';
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
+import { textAlign } from '@mui/system';
 
 //include render/Status?
 
@@ -105,14 +106,18 @@ const MapDisplay = ({google, infoWindow, activeMarker, selectedPlace, markerClic
         }
       } >
       {/* {markers} */}
+      {/* {!eventList.err && <div> */}
       {eventList.map((event, idx) => markerMaker(event, idx))}
+      {/* </div>} */}
       {/* <Marker onClick={markerClicker} name={'Marker!'} />
       <Marker onClick={markerClicker} name={'I made a marker!'} position={{ lat: 40.730610, lng: -74 }} /> */}
       <InfoWindow marker={activeMarker} visible={infoWindow} onClose={closeWindow}>
-        <div>
-          <h4>{selectedPlace.name} {selectedPlace.venue} {selectedPlace.startTime} {selectedPlace.startDate} {selectedPlace.url}</h4>
+        <div style={{color: 'black', textAlign: 'center'}}>
+          <h3> {selectedPlace.name}</h3>
+          <h4> {selectedPlace.venue}</h4> 
+          <h4> Starts at: {selectedPlace.startTime} on {selectedPlace.startDate}</h4> 
+          <h4> {selectedPlace.url}</h4>
         </div>
-   
       </InfoWindow>
     </Map>
   );

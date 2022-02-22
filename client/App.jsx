@@ -15,7 +15,7 @@ const App = () => {
       ...(mode === 'light'
         ? {
           // palette values for light mode
-          primary: {
+          primary: { //NAVBAR
             // main: '#03676c', 
             main: '#E8E8E8', //changed to Clean
           },
@@ -36,7 +36,8 @@ const App = () => {
           text: {
             // primary: '#f9f9f9',
             // secondary: '#929191',
-            primary: '#00303F', //changed to cerulean
+            primary: '#f9f9f9',
+            secondary: '#929191' //changed to cerulean
           },
           background: {
             paper: 'rgba(4,31,43,0.74)',
