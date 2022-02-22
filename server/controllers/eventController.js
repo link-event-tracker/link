@@ -12,10 +12,22 @@ eventController.getApiData = async (req, res, next) => {
     console.log('params', req.params);
     console.log('zip', req.params.zipCode);
     console.log('filters', req.params.filters.length);
+
+    let locationInsert;
+    if (req.params.zipCode.length === 5) {
+      locationInsert = `postalCode=${req.params.zipCode}`;
+    }
+    else {
+      locationInsert = `latlong=${req.params.zipCode}&radius=25`;
+    }
+
+    console.log('location insert', locationInsert);
+
     const filterInsert = req.params.filters.length !== 2 ? `&classificationName=${req.params.filters}` : '';
     console.log('insert', filterInsert);  
     const [resultTicketMaster] = await Promise.all([
-      fetch(`https://app.ticketmaster.com/discovery/v2/events.json?postalCode=${req.params.zipCode}${filterInsert}&size=30&sort=date,asc&apikey=${body}`),
+      // fetch(`https://app.ticketmaster.com/discovery/v2/events.json?postalCode=${req.params.zipCode}${filterInsert}&size=30&sort=date,asc&apikey=${body}`),
+      fetch(`https://app.ticketmaster.com/discovery/v2/events.json?${locationInsert}${filterInsert}&size=30&sort=date,asc&apikey=${body}`),
     ]);
 
     const tmData = await resultTicketMaster.json();
