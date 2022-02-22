@@ -10,8 +10,8 @@ const MapDisplay = ({google, infoWindow, activeMarker, selectedPlace, markerClic
 
   const mapStyles = {
     marginTop: '20px',
-    width: '85vw',
-    height: '80vh'
+    width: '82vw',
+    height: '83vh'
   };
 
   // const features = eventList.map(el => el = {'position': new google.maps.latLng(eventList.latitude, eventList.longitude)});
@@ -109,10 +109,11 @@ const MapDisplay = ({google, infoWindow, activeMarker, selectedPlace, markerClic
     >
       {eventList.map((event, idx) => markerMaker(event, idx))}
       <InfoWindow marker={activeMarker} visible={infoWindow} onClose={closeWindow}>
-        <div>
-          <h4>{selectedPlace.name} {selectedPlace.venue} {selectedPlace.startTime} {selectedPlace.startDate} {selectedPlace.url}</h4>
+        <div style={{color: 'black', textAlign: 'center'}}>
+          <h3 style={{textDecoration: 'underline'}}>{selectedPlace.name}</h3>
+          <h4>{selectedPlace.venue}</h4>
+          <h4>Starting at {selectedPlace.startTime} on {selectedPlace.startDate}</h4>
         </div>
-   
       </InfoWindow>
     </Map>
   );
