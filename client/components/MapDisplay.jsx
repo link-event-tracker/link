@@ -104,7 +104,9 @@ const MapDisplay = ({google, infoWindow, activeMarker, selectedPlace, markerClic
         }
       } >
       {/* {markers} */}
+      {/* {!eventList.err && <div> */}
       {eventList.map((event, idx) => markerMaker(event, idx))}
+      {/* </div>} */}
       {/* <Marker onClick={markerClicker} name={'Marker!'} />
       <Marker onClick={markerClicker} name={'I made a marker!'} position={{ lat: 40.730610, lng: -74 }} /> */}
       <InfoWindow marker={activeMarker} visible={infoWindow} onClose={closeWindow}>

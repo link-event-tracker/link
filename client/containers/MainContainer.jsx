@@ -44,6 +44,9 @@ const MainContainer = () => {
         })
         .catch(console.error);
     }
+    else {
+      setEventList([]);
+    }
   }, [zip]);
 
   return (

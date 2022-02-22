@@ -50,10 +50,12 @@ eventController.getApiData = async (req, res, next) => {
     res.locals.localEvents = eventsArray;
     return next();
   } catch (err){
-    return next({
-      log: `eventController.getApiData: ERROR: ${typeof err === 'object' ? JSON.stringify(err) : err}`,
-      message: { err: 'eventController.getApiData: ERROR: Check server logs for details' },
-    });
+    return next(
+    //   {
+    //   log: `eventController.getApiData: ERROR: ${typeof err === 'object' ? JSON.stringify(err) : err}`,
+    //   message: { err: 'eventController.getApiData: ERROR: Check server logs for details' },
+    // }
+    );
   }
 };
 
