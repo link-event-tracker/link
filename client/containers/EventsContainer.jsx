@@ -6,7 +6,7 @@ import Stack from '@mui/material/Stack';
 
 const EventsContainer = (props) => (
   <Stack spacing={1}>
-    <item><EventFilter { ...props } /></item>
+    <item ><EventFilter { ...props } /></item>
     <item><EventSearch { ...props } /></item>
     {/* {props.eventList.length !== 0 &&  */}
     {/* // !props.eventList.err && */}
