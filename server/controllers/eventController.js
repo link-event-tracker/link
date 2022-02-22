@@ -9,9 +9,13 @@ const eventController = {};
 eventController.getApiData = async (req, res, next) => {
   try {
     const body = '038FSAKmByGrs9dF4V6NyErna86YKfAR';
-
+    console.log('params', req.params);
+    console.log('zip', req.params.zipCode);
+    console.log('filters', req.params.filters.length);
+    const filterInsert = req.params.filters.length !== 2 ? `&classificationName=${req.params.filters}` : '';
+    console.log('insert', filterInsert);  
     const [resultTicketMaster] = await Promise.all([
-      fetch(`https://app.ticketmaster.com/discovery/v2/events.json?postalCode=${req.params.zipCode}&size=30&sort=date,asc&apikey=${body}`),
+      fetch(`https://app.ticketmaster.com/discovery/v2/events.json?postalCode=${req.params.zipCode}${filterInsert}&size=30&sort=date,asc&apikey=${body}`),
     ]);
 
     const tmData = await resultTicketMaster.json();
