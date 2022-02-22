@@ -8,7 +8,13 @@ const EventsContainer = (props) => (
   <Stack spacing={1}>
     <item><EventFilter { ...props } /></item>
     <item><EventSearch { ...props } /></item>
+    {/* {props.eventList.length !== 0 &&  */}
+    {/* // !props.eventList.err && */}
     <item><EventListContainer { ...props } /></item>
+    {/* } */}
+    {!props.eventList.length &&
+    <div>No events found</div>
+    }
   </Stack>
   // <div className="innerBox">
   //   <EventFilter {...props} />
