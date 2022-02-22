@@ -41,7 +41,7 @@ const StyledStack = styled(Stack)(() => ({
 }));
 
 const Circle = styled(Box)(() => ({
-  backgroundColor: '#c9f0ee',
+  backgroundColor: '#70afb3',
   height: '25px',
   width: '25px',
   borderRadius: '50%',

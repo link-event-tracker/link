@@ -13,7 +13,7 @@ const DateBox = ({
 
   return (
     <Box sx={{
-      backgroundColor: 'secondary.main',
+      backgroundColor: '#8fb5b8',
       justifyContent: 'center',
       borderRadius: '15%',
     }}>
