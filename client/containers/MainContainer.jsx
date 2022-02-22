@@ -2,8 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-
-
 import Button from '@mui/material/Button';
 import MainNav from '../components/MainNav';
 import EventsContainer from './EventsContainer';
@@ -50,14 +48,14 @@ const MainContainer = () => {
 
   return (
     <Container sx={{ p: 2 }}>
-      <Grid container spacing={2}>
-        <Grid item xs={2}>
-          <MainNav />
+      <Grid container spacing={1}>
+        <Grid item xs={1}>
+          <MainNav/>
         </Grid>
         <Grid item xs={3}>
           <EventsContainer zip={zip} setZip={setZip} eventList={eventList}/>
         </Grid>
-        <Grid item xs={7}>
+        <Grid item xs={6}>
           <MapDisplay eventList={eventList} infoWindow={infoWindow} activeMarker={activeMarker} selectedPlace={selectedPlace} markerClicker={markerClicker} closeWindow={closeWindow} zip={zip} />
         </Grid>
       </Grid>
