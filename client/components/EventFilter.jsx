@@ -24,9 +24,13 @@ const Circle = styled(Box)(() => ({
 }));
 
 const EventFilter = ({func1, func2,func3,func4,func5}) => {
+  const handleClick = (filter) => {
+    
+  };
+ 
   return(<div className="eventNav">
     <Stack direction="row">
-      <Circle onClick={() => { console.log('onClick'); }}>
+      <Circle onClick={() => handleClick(music)}>
         <MusicNoteSharpIcon sx={{ color: '#ffffff', 
           fontSize: 23 }}/>
       </Circle>
