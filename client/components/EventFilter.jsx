@@ -30,7 +30,7 @@ const EventFilter = ({filters, handleFilters}) => {
   
  
   return(<div className="eventNav">
-    <Stack direction="row">
+    <Stack marginTop='20px' display='flex'>
       <ToggleButtonGroup
         value={filters}
         onChange={handleFilters}
@@ -39,7 +39,7 @@ const EventFilter = ({filters, handleFilters}) => {
         <ToggleButton value="Music" aria-label="Music">
           <Circle onClick={() => { console.log('music'); }}>
             <MusicNoteSharpIcon sx={{ color: '#ffffff', 
-              fontSize: 23 }}/>
+              fontSize: 23, margin: 'auto'}}/>
           </Circle>
         </ToggleButton>
         <ToggleButton value="Sports" aria-label="Sports">
