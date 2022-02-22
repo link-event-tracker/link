@@ -16,21 +16,27 @@ const App = () => {
         ? {
           // palette values for light mode
           primary: {
-            main: '#03676c',
+            // main: '#03676c', 
+            main: '#E8E8E8', //changed to Clean
           },
           secondary: {
-            main: 'rgb(6, 87, 82)',
+            // main: 'rgb(6, 87, 82)', 
+            main: '#7A9D96', //changed to Mist
           },
           error: {
-            main: '#d32f2f',
+            // main: '#d32f2f' 
+            main: '#00303F', //changed to Cerulean
           },
           info: {
-            main: '#ad1dad',
-            light: '#5be2e2',
+            // main: '#ad1dad',
+            // light: '#5be2e2',
+            main: '#7A9D96', //changed to Mist
+            light: '#CAE4DB', //changed to 
           },
           text: {
-            primary: '#f9f9f9',
-            secondary: '#929191',
+            // primary: '#f9f9f9',
+            // secondary: '#929191',
+            primary: '#00303F', //changed to cerulean
           },
           background: {
             paper: 'rgba(4,31,43,0.74)',

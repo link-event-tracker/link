@@ -17,6 +17,11 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 
+import Toolbar from '@mui/material/Toolbar';
+import AppBar from '@mui/material/AppBar';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+
 const Item = styled(Box)(({ theme }) => ({
   backgroundColor: 'inherit',
   ...theme.typography.body2,
@@ -100,18 +105,38 @@ const MainNav = (props) => {
 
   return (
     <div>
-      {['left'].map((anchor) => (
-        <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
-          <Drawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-          >
-            {list(anchor)}
-          </Drawer>
-        </React.Fragment>
-      ))}
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="static">
+          <Toolbar>
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              sx={{ mr: 2 }}
+              onClick={toggleDrawer('left', true)}
+            >
+              <MenuIcon />
+            </IconButton>
+            {/* <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            News
+            </Typography> */}
+            <Button color="inherit">Login</Button>
+          </Toolbar>
+        </AppBar>
+      </Box>
+      {/* {['left'].map((anchor) => ( */}
+      {/* <React.Fragment key={'left'}> */}
+      {/* <Button onClick={toggleDrawer('left', true)}>Menu</Button> */}
+      <Drawer
+        anchor={'left'}
+        open={state['left']}
+        onClose={toggleDrawer('left', false)}
+      >
+        {list('left')}
+      </Drawer>
+      {/* </React.Fragment> */}
+      {/* ))} */}
     </div>
   );
 };

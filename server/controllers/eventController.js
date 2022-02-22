@@ -11,7 +11,7 @@ eventController.getApiData = async (req, res, next) => {
     const body = '038FSAKmByGrs9dF4V6NyErna86YKfAR';
 
     const [resultTicketMaster] = await Promise.all([
-      fetch(`https://app.ticketmaster.com/discovery/v2/events.json?postalCode=${req.params.zipCode}&size=10&sort=date,asc&apikey=${body}`),
+      fetch(`https://app.ticketmaster.com/discovery/v2/events.json?postalCode=${req.params.zipCode}&size=30&sort=date,asc&apikey=${body}`),
     ]);
 
     const tmData = await resultTicketMaster.json();
