@@ -11,7 +11,8 @@ const eventMaker = (event, idx, props) => (
 );
 
 const EventListContainer = ({ eventList }) => (
-  <Stack sx={{maxHeight: '68vh', overflow: 'auto'}} spacing={1}>
+  <Stack sx={{maxHeight: '69.5vh', overflow: 'auto',  
+    marginRight:'9px'}} spacing={1}>
     {eventList.map((event, idx) => eventMaker(event, idx))}
   </Stack>
 );

@@ -41,7 +41,7 @@ const Button = styled(ToggleButton)(() => ({
 
 const EventFilter = ({filters, handleFilters}) => {
   return(<div className="eventNav">
-    <Stack marginTop='20px' display='flex'>
+    <Stack marginTop='10px' display='flex'>
       <ToggleButtonGroup
         value={filters}
         onChange={handleFilters}

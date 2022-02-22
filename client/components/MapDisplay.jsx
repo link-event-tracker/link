@@ -97,7 +97,7 @@ const MapDisplay = ({google, infoWindow, activeMarker, selectedPlace, markerClic
 
   return (
     <Map id='mello' className='hello' google={google}
-      zoom={14}
+      zoom={12}
       style={mapStyles}
       initialCenter={
         {
@@ -109,8 +109,8 @@ const MapDisplay = ({google, infoWindow, activeMarker, selectedPlace, markerClic
     >
       {eventList.map((event, idx) => markerMaker(event, idx))}
       <InfoWindow marker={activeMarker} visible={infoWindow} onClose={closeWindow}>
-        <div style={{color: 'black', textAlign: 'center'}}>
-          <h3 style={{textDecoration: 'underline'}}>{selectedPlace.name}</h3>
+        <div style={{color: 'black', textAlign: 'center', margin: '20px'}}>
+          <h3 style={{textDecoration: 'underline'}}><a href={selectedPlace.url} target="_blank" rel="noopener noreferrer">{selectedPlace.name}</a></h3>
           <h4>{selectedPlace.venue}</h4>
           <h4>Starting at {selectedPlace.startTime} on {selectedPlace.startDate}</h4>
         </div>
