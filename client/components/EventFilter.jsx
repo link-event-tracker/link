@@ -14,57 +14,69 @@ import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
 const Circle = styled(Box)(() => ({
-  backgroundColor: 'rgba(4,31,43,0.74)',
+  // backgroundColor: 'rgba(4,31,43,0.74)',
   height: '30px',
   width: '30px',
   borderRadius: '50%',
-  marginRight: 15,
-  marginTop: 20,
-  marginLeft: 1,
+  marginRight: 11.3,
+  marginTop: 10,
+  marginLeft: 13,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center'
+}));
+
+const Button = styled(ToggleButton)(() => ({
+  backgroundColor: 'rgba(4,31,43,0.74)',
+  // height: '30px',
+  // width: '30px',
+  // borderRadius: '50%',
+  marginRight: 11.3,
+  marginTop: 10,
+  marginLeft: 9,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center'
 }));
 
 const EventFilter = ({filters, handleFilters}) => {
-  
- 
   return(<div className="eventNav">
     <Stack direction="row">
       <ToggleButtonGroup
         value={filters}
         onChange={handleFilters}
         aria-label="search filters"
+        size="small"
       >
-        <ToggleButton value="Music" aria-label="Music">
+        <Button value="Music" aria-label="Music">
           <Circle onClick={() => { console.log('music'); }}>
-            <MusicNoteSharpIcon sx={{ color: '#ffffff', 
-              fontSize: 23 }}/>
+            <MusicNoteSharpIcon sx={{ color: '#E8E8E8', 
+              fontSize: 35 }}/>
           </Circle>
-        </ToggleButton>
-        <ToggleButton value="Sports" aria-label="Sports">
+        </Button>
+        <Button value="Sports" aria-label="Sports">
           <Circle onClick={() => { console.log('sports'); }}>
-            <SportsFootballIcon sx={{ color: '#ffffff', 
-              fontSize: 22}}/>
+            <SportsFootballIcon sx={{ color: '#E8E8E8', 
+              fontSize: 35}}/>
           </Circle>
-        </ToggleButton>
-        <ToggleButton value="Arts & Theatre" aria-label="Arts & Theatre">
+        </Button>
+        <Button value="Arts & Theatre" aria-label="Arts & Theatre">
           <Circle onClick={() => { console.log('arts & theatre'); }}>
-            <TheaterComedyIcon sx={{ color: '#ffffff', fontSize: 20}}/>
+            <TheaterComedyIcon sx={{ color: '#E8E8E8', fontSize: 35}}/>
           </Circle>
-        </ToggleButton>
-        <ToggleButton value="Family" aria-label="Family">
+        </Button>
+        <Button value="Family" aria-label="Family">
           <Circle onClick={() => { console.log('family'); }}>
-            <FamilyRestroomIcon sx={{ color: '#ffffff', 
-              fontSize: 23 }}/>
+            <FamilyRestroomIcon sx={{ color: '#E8E8E8', 
+              fontSize: 35 }}/>
           </Circle>
-        </ToggleButton>
-        <ToggleButton value="Film" aria-label="Film">
+        </Button>
+        <Button value="Film" aria-label="Film">
           <Circle onClick={() => { console.log('film'); }}>
-            <TheatersIcon sx={{ color: '#ffffff', 
-              fontSize: 23}}/>
+            <TheatersIcon sx={{ color: '#E8E8E8', 
+              fontSize: 35}}/>
           </Circle>
-        </ToggleButton> 
+        </Button> 
       </ToggleButtonGroup>
     </Stack>
   </div>

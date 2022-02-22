@@ -16,27 +16,27 @@ const App = () => {
         ? {
           // palette values for light mode
           primary: {
-            // main: '#03676c', 
-            main: '#E8E8E8', //changed to Clean
+            main: '#03676c', 
+            // main: '#70afb3', //changed to Clean
           },
           secondary: {
-            // main: 'rgb(6, 87, 82)', 
-            main: '#7A9D96', //changed to Mist
+            main: 'rgb(6, 87, 82)', 
+            // main: '#7A9D96', //changed to Mist
           },
           error: {
-            // main: '#d32f2f' 
-            main: '#00303F', //changed to Cerulean
+            main: '#d32f2f' 
+            // main: '#00303F', //changed to Cerulean
           },
           info: {
-            // main: '#ad1dad',
-            // light: '#5be2e2',
-            main: '#7A9D96', //changed to Mist
-            light: '#CAE4DB', //changed to 
+            main: '#ad1dad',
+            light: '#5be2e2',
+            // main: '#7A9D96', //changed to Mist
+            // light: '#CAE4DB', //changed to 
           },
           text: {
-            // primary: '#f9f9f9',
-            // secondary: '#929191',
-            primary: '#00303F', //changed to cerulean
+            primary: '#f9f9f9',
+            secondary: '#929191',
+            // primary: '#00303F', //changed to cerulean
           },
           background: {
             paper: 'rgba(4,31,43,0.74)',
@@ -59,7 +59,7 @@ const App = () => {
             light: '#5be2e2',
           },
           text: {
-            primary: '#f9f9f9',
+            primary: '#00303F',
           },
           background: {
             paper: 'rgba(4,31,43,0.74)',

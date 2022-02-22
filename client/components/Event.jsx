@@ -39,7 +39,9 @@ const Event = ({
   return (
     <Paper sx={{
       borderRadius: 5,
-      p: 1
+      p: 1,
+      backgroundColor: '#E8E8E8',
+      color: '#00303F',
     }}>
       <Grid container spacing={2}>
         <Grid item xs={9}>
