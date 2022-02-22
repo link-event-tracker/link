@@ -4,7 +4,9 @@ import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 
 //include render/Status?
 
-const MapDisplay = ({google, infoWindow, activeMarker, selectedPlace, markerClicker, closeWindow, eventList}) => {
+const MapDisplay = ({google, infoWindow, activeMarker, selectedPlace, markerClicker, closeWindow, eventList, zip}) => {
+
+  
 
   const mapStyles = {
     width: '100%',
@@ -18,10 +20,77 @@ const MapDisplay = ({google, infoWindow, activeMarker, selectedPlace, markerClic
   //   map: map,
   //   icon: iconBase + 'parking_lot_maps.png'
   // });
+  // const markers = [];
+  // useEffect(() => {
+  //   if (zip.length === 5) {
+  //     // const markerMaker = () => {
+  //     console.log('trying to map');
+  //     // const { name,
+  //     //   startDate,
+  //     //   startTime,
+  //     //   venue,
+  //     //   city,
+  //     //   state,
+  //     //   price,
+  //     //   vendorUrl, 
+  //     //   longitude, 
+  //     //   latitude } = eventList;
+  //     eventList.map((event, i) => {
+  //       console.log('making map', event, Number(event.latitude), Number(event.longitude));
+  //       markers.push(
+  //         <Marker id={i} 
+  //           {...event}  
+  //           onClick={markerClicker}
+  //           position={{lat: Number(event.latitude), lng: Number(event.longitude)}}
+  //           // name={name}
+  //           // venue={venue}
+  //           // startDate={startDate}
+  //           // startTime={startTime}
+  //           // vendorUrl={vendorUrl}
+  //         />);
+  //     });  
+  //   }
+  //   // }
+  // }, [zip, eventList]);
 
-  const markers = eventList.map((event, i) => {
-    <Marker id={i} event={event} onClick={markerClicker} name={'Insert Label'}/>
-  });
+  
+  // const markerMaker = () => {
+  //   // const { name,
+  //   //   startDate,
+  //   //   startTime,
+  //   //   venue,
+  //   //   city,
+  //   //   state,
+  //   //   price,
+  //   //   vendorUrl, 
+  //   //   longitude, 
+  //   //   latitude } = eventList;
+  //   eventList.map((event, i) => {
+  //     console.log(event);
+  //     markers.push(
+  //       <Marker id={i} 
+  //         {...event}  
+  //         onClick={markerClicker}
+  //         position={{lat: event.latitude, lng: event.longitude}}
+  //         // name={name}
+  //         // venue={venue}
+  //         // startDate={startDate}
+  //         // startTime={startTime}
+  //         // vendorUrl={vendorUrl}
+  //       />);
+  //   });  
+   
+  // };
+
+  const markerMaker = (event, idx, props) => (
+    <Marker
+      {...event}
+      key={idx}
+      onClick={markerClicker}
+      position={{lat: Number(event.latitude), lng: Number(event.longitude)}}
+    />
+  );
+
   
 
   return (
@@ -34,11 +103,15 @@ const MapDisplay = ({google, infoWindow, activeMarker, selectedPlace, markerClic
           lng: -73.935242
         }
       } >
-      <Marker onClick={markerClicker} name={'Insert Label'}/>
+      {/* {markers} */}
+      {eventList.map((event, idx) => markerMaker(event, idx))}
+      {/* <Marker onClick={markerClicker} name={'Marker!'} />
+      <Marker onClick={markerClicker} name={'I made a marker!'} position={{ lat: 40.730610, lng: -74 }} /> */}
       <InfoWindow marker={activeMarker} visible={infoWindow} onClose={closeWindow}>
         <div>
-          <h4>{selectedPlace.name}</h4>
+          <h4>{selectedPlace.name} {selectedPlace.venue} {selectedPlace.startTime} {selectedPlace.startDate} {selectedPlace.url}</h4>
         </div>
+   
       </InfoWindow>
     </Map>
   );
