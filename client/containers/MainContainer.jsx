@@ -50,7 +50,10 @@ const MainContainer = () => {
           console.log('events', data);
           setEventList(data);
         })
-        .catch(console.error);
+        .catch((err) => {
+          console.error;
+          setEventList([]);
+        });
     }
     else {
       setEventList([]);
