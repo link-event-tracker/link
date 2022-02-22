@@ -14,6 +14,7 @@ const MainContainer = () => {
   const [activeMarker, setActiveMarker] = useState({});
   const [selectedPlace, setSelectedPlace] = useState({});
   const [filters, setFilters] = useState([]);
+  const [mapCenter, setMapCenter] = useState();
 
   const handleFilters = (event, newFilters) => {
     setFilters(newFilters);
@@ -49,6 +50,7 @@ const MainContainer = () => {
         .then((data) => {
           console.log('events', data);
           setEventList(data);
+          setMapCenter({ lat: data[0].latitude, lng: data[0].longitude});
         })
         .catch((err) => {
           console.error;
@@ -72,7 +74,7 @@ const MainContainer = () => {
             <EventsContainer zip={zip} setZip={setZip} eventList={eventList} filters={filters} handleFilters={handleFilters} />
           </Grid>
           <Grid item xs={9}>
-            <MapDisplay eventList={eventList} infoWindow={infoWindow} activeMarker={activeMarker} selectedPlace={selectedPlace} markerClicker={markerClicker} closeWindow={closeWindow} zip={zip} />
+            <MapDisplay eventList={eventList} infoWindow={infoWindow} activeMarker={activeMarker} selectedPlace={selectedPlace} markerClicker={markerClicker} closeWindow={closeWindow} zip={zip} mapCenter={mapCenter} />
           </Grid>
         </Grid>
       </Container>
