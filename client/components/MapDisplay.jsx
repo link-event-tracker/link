@@ -4,7 +4,7 @@ import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 
 //include render/Status?
 
-const MapDisplay = ({google, infoWindow, activeMarker, selectedPlace, markerClicker, closeWindow, eventList, zip}) => {
+const MapDisplay = ({google, infoWindow, activeMarker, selectedPlace, markerClicker, closeWindow, eventList, zip, mapCenter}) => {
 
   
 
@@ -92,6 +92,7 @@ const MapDisplay = ({google, infoWindow, activeMarker, selectedPlace, markerClic
     />
   );
 
+  console.log('map center', mapCenter);
   
 
   return (
@@ -100,16 +101,13 @@ const MapDisplay = ({google, infoWindow, activeMarker, selectedPlace, markerClic
       style={mapStyles}
       initialCenter={
         {
-          lat: 40.730610,
-          lng: -73.935242
+          lat: 40.71838788361567,
+          lng: -74.00332705168239
         }
-      } >
-      {/* {markers} */}
-      {/* {!eventList.err && <div> */}
+      }
+      center={mapCenter}
+    >
       {eventList.map((event, idx) => markerMaker(event, idx))}
-      {/* </div>} */}
-      {/* <Marker onClick={markerClicker} name={'Marker!'} />
-      <Marker onClick={markerClicker} name={'I made a marker!'} position={{ lat: 40.730610, lng: -74 }} /> */}
       <InfoWindow marker={activeMarker} visible={infoWindow} onClose={closeWindow}>
         <div>
           <h4>{selectedPlace.name} {selectedPlace.venue} {selectedPlace.startTime} {selectedPlace.startDate} {selectedPlace.url}</h4>
