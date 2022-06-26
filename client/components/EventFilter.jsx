@@ -7,14 +7,11 @@ import MusicNoteSharpIcon from '@mui/icons-material/MusicNoteSharp';
 import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
 import SportsFootballIcon from '@mui/icons-material/SportsFootball';
 import TheatersIcon from '@mui/icons-material/Theaters';
-// import SvgIcon from '@mui/material/SvgIcon';
-import { yellow } from '@mui/material/colors';
 
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
 const Circle = styled(Box)(() => ({
-  // backgroundColor: 'rgba(4,31,43,0.74)',
   height: '30px',
   width: '30px',
   borderRadius: '50%',
@@ -28,9 +25,6 @@ const Circle = styled(Box)(() => ({
 
 const Button = styled(ToggleButton)(() => ({
   backgroundColor: 'rgba(4,31,43,0.74)',
-  // height: '30px',
-  // width: '30px',
-  // borderRadius: '50%',
   marginRight: 11.3,
   marginTop: 10,
   marginLeft: 9,
@@ -49,30 +43,30 @@ const EventFilter = ({filters, handleFilters}) => {
         size="small"
       >
         <Button value="Music" aria-label="Music">
-          <Circle onClick={() => { console.log('music'); }}>
+          <Circle>
             <MusicNoteSharpIcon sx={{ color: '#E8E8E8', 
               fontSize: 35 }}/>
           </Circle>
         </Button>
         <Button value="Sports" aria-label="Sports">
-          <Circle onClick={() => { console.log('sports'); }}>
+          <Circle>
             <SportsFootballIcon sx={{ color: '#E8E8E8', 
               fontSize: 35}}/>
           </Circle>
         </Button>
         <Button value="Arts & Theatre" aria-label="Arts & Theatre">
-          <Circle onClick={() => { console.log('arts & theatre'); }}>
+          <Circle>
             <TheaterComedyIcon sx={{ color: '#E8E8E8', fontSize: 35}}/>
           </Circle>
         </Button>
         <Button value="Family" aria-label="Family">
-          <Circle onClick={() => { console.log('family'); }}>
+          <Circle>
             <FamilyRestroomIcon sx={{ color: '#E8E8E8', 
               fontSize: 35 }}/>
           </Circle>
         </Button>
         <Button value="Film" aria-label="Film">
-          <Circle onClick={() => { console.log('film'); }}>
+          <Circle>
             <TheatersIcon sx={{ color: '#E8E8E8', 
               fontSize: 35}}/>
           </Circle>
@@ -84,10 +78,3 @@ const EventFilter = ({filters, handleFilters}) => {
 };
 
 export default EventFilter;
-{/* <div className="eventNav">
-<div>{func1}</div>
-<div>{func2}</div>
-<div>{func3}</div>
-<div>{func4}</div>
-<div>{func5}</div>
-</div> */}

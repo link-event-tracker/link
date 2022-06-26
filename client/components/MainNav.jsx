@@ -1,22 +1,11 @@
-import React, { useState, useEffect}from 'react';
+import React, { useState } from 'react';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
 import Logo from './Linklogo.png';
 import Drawer from '@mui/material/Drawer';
-
 import Button from '@mui/material/Button';
 import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
-
 import Toolbar from '@mui/material/Toolbar';
 import AppBar from '@mui/material/AppBar';
 import IconButton from '@mui/material/IconButton';
@@ -49,7 +38,7 @@ const Circle = styled(Box)(() => ({
 }));
 
 const MainNav = (props) => {
-  const [state, setState] = React.useState({
+  const [state, setState] = useState({
     left: false,
   });
 
@@ -118,16 +107,10 @@ const MainNav = (props) => {
             >
               <MenuIcon />
             </IconButton>
-            {/* <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
-            </Typography> */}
             <Button color="inherit">Login</Button>
           </Toolbar>
         </AppBar>
       </Box>
-      {/* {['left'].map((anchor) => ( */}
-      {/* <React.Fragment key={'left'}> */}
-      {/* <Button onClick={toggleDrawer('left', true)}>Menu</Button> */}
       <Drawer
         anchor={'left'}
         open={state['left']}
@@ -135,8 +118,6 @@ const MainNav = (props) => {
       >
         {list('left')}
       </Drawer>
-      {/* </React.Fragment> */}
-      {/* ))} */}
     </div>
   );
 };

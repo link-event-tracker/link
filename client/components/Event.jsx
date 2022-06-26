@@ -6,7 +6,6 @@ import Grid from '@mui/material/Grid';
 import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import SaveIcon from '@mui/icons-material/Save';
 import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
 
 const Event = ({
@@ -16,7 +15,6 @@ const Event = ({
   venue,
   city,
   state,
-  price,
   vendorUrl,
   image
 }) => {
@@ -35,7 +33,6 @@ const Event = ({
   const open = Boolean(anchorEl);
   const id = open ? 'event-modal' : undefined;
 
-  console.log('url', vendorUrl);
   return (
     <Paper sx={{
       borderRadius: 5,
@@ -93,7 +90,6 @@ const Event = ({
           </Popover>
         </Grid>
         <Grid item xs={6}>
-          {/* <Button variant='text'>SHARE</Button> */}
           <ShareButton url={vendorUrl} />
         </Grid>
       </Grid>

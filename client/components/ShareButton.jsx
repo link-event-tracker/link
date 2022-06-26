@@ -53,14 +53,7 @@ export default function DropdownShareButton({ url }) {
   };
 
   return (
-    <div
-      // style={{
-      //   height: '55vh',
-      //   display: 'flex',
-      //   alignItems: 'center',
-      //   justifyContent: 'center'
-      // }}
-    >
+    <div>
       <PopupState variant="popper" popupId="social-share">
         {popupState => (
           <div>
