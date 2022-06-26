@@ -1,6 +1,4 @@
 import React from 'react';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -9,7 +7,6 @@ const DateBox = ({
   startDate
 }) => {
   const jsDate = new Date(startDate);
-  console.log(startDate, jsDate);
 
   return (
     <Box sx={{

@@ -3,7 +3,7 @@ import Event from '../components/Event';
 import Stack from '@mui/material/Stack';
 
 
-const eventMaker = (event, idx, props) => (
+const eventMaker = (event, idx) => (
   <Event
     {...event}
     key={idx}
