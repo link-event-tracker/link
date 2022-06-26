@@ -1,15 +1,10 @@
-/* eslint-disable max-len */
 const fetch = require('node-fetch');
-const moment = require('moment');
 const db = require('../models/psql');
 
 
 const saveController = {};
 
 saveController.getFavorites = (req, res, next) => {
-  // //loop and create database
-  // const ticketValue = [req.body.postalCode, req.body.name, req.body.classification, req.body.vendorUrl, req.body.image, req.body.startDate, req.body.startTime, req.body.venue, req.body.city, req.body.state, req.body.address, req.body.longitude, req.body.latitude];
-  // const ticketQuery = 'INSERT INTO events(postal_code, name, classification, vendor_url, image, start_date, start_time, venue, city, state, address, longitude, latitude) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) ON CONFLICT ';
   const checkQuery = 'SELECT * FROM events';
   
   if(db.query(checkQuery)) {
@@ -23,12 +18,14 @@ saveController.getFavorites = (req, res, next) => {
 };
 
 saveController.addFavorites = (req, res, next) => {
-  const ticketValue = [req.body.postalCode, req.body.name, req.body.classification, req.body.vendorUrl, req.body.image, req.body.startDate, req.body.startTime, req.body.venue, req.body.city, req.body.state, req.body.address, req.body.longitude, req.body.latitude];
+  const ticketValue =
+    [req.body.postalCode, req.body.name, req.body.classification, req.body.vendorUrl,
+      req.body.image, req.body.startDate, req.body.startTime, req.body.venue, req.body.city,
+      req.body.state, req.body.address, req.body.longitude, req.body.latitude];
   const ticketQuery = 'INSERT INTO events(postal_code, name, classification, vendor_url, image, start_date, start_time, venue, city, state, address, longitude, latitude) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)';
     
   db.query(ticketQuery, ticketValue)
     .then((data) => { 
-      console.log('successful save');
       return next();
     })
     .catch(err => {
@@ -43,7 +40,6 @@ saveController.deleteFavorites = (req, res, next) => {
   const deleteQuery = `DELETE FROM events WHERE postal_code = ${req.body.postalCode} AND name = ${req.body.name} AND start_date = ${req.body.startDate}`;
   db.query(deleteQuery)
     .then((data) => { 
-      console.log('successful deletion');
       return next();
     })
     .catch(err => {
@@ -53,8 +49,5 @@ saveController.deleteFavorites = (req, res, next) => {
       });
     });
 };
-  
-  
-// EXPORT THE CONTROLLER HERE
+
 module.exports = saveController;
-  
