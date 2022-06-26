@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 
 const MapDisplay = ({
@@ -55,5 +55,5 @@ const MapDisplay = ({
 };
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyBFk5zzwelSvDP5WhyFfC5KaSYKiPzZzRE'
+  apiKey: process.env.REACT_APP_GOOGLE_MAPS_KEY
 })(MapDisplay);

@@ -1,17 +1,11 @@
-/* eslint-disable max-len */
 const fetch = require('node-fetch');
 const moment = require('moment');
-const db = require('../models/psql');
-
 
 const eventController = {};
 
 eventController.getApiData = async (req, res, next) => {
   try {
-    const body = '038FSAKmByGrs9dF4V6NyErna86YKfAR';
-    console.log('params', req.params);
-    console.log('zip', req.params.zipCode);
-    console.log('filters', req.params.filters.length);
+    const body = process.env.TICKETMASTER_KEY;
 
     let locationInsert;
     if (req.params.zipCode.length === 5) {
@@ -21,12 +15,10 @@ eventController.getApiData = async (req, res, next) => {
       locationInsert = `latlong=${req.params.zipCode}&radius=25`;
     }
 
-    console.log('location insert', locationInsert);
-
-    const filterInsert = req.params.filters.length !== 2 ? `&classificationName=${req.params.filters}` : '';
-    console.log('insert', filterInsert);  
+    const filterInsert = req.params.filters.length !== 2
+      ? `&classificationName=${req.params.filters}` 
+      : '';
     const [resultTicketMaster] = await Promise.all([
-      // fetch(`https://app.ticketmaster.com/discovery/v2/events.json?postalCode=${req.params.zipCode}${filterInsert}&size=30&sort=date,asc&apikey=${body}`),
       fetch(`https://app.ticketmaster.com/discovery/v2/events.json?${locationInsert}${filterInsert}&size=60&sort=date,asc&apikey=${body}`),
     ]);
 
@@ -35,12 +27,13 @@ eventController.getApiData = async (req, res, next) => {
     const eventsArray = [];
 
     for(let i = 0; i < tmData['_embedded'].events.length; i++) {
-
       // covert Time from military to standard
-      const newTime = moment(tmData['_embedded'].events[i].dates.start.localTime, 'HH:mm:ss').format('hh:mm A');
+      const newTime = moment(tmData['_embedded'].events[i].dates.start.localTime, 'HH:mm:ss')
+        .format('hh:mm A');
       
       //convert short date pattern to long date pattern
-      const eventDate = new Date (tmData['_embedded'].events[i].dates.start.localDate).toUTCString().slice(0, 16);
+      const eventDate = new Date (tmData['_embedded'].events[i].dates.start.localDate)
+        .toUTCString().slice(0, 16);
       
       const apiData = {
         id: i,
@@ -60,21 +53,17 @@ eventController.getApiData = async (req, res, next) => {
       };
 
       eventsArray.push(apiData);
-
     }
-
     res.locals.localEvents = eventsArray;
     return next();
   } catch (err){
     return next(
-    //   {
-    //   log: `eventController.getApiData: ERROR: ${typeof err === 'object' ? JSON.stringify(err) : err}`,
-    //   message: { err: 'eventController.getApiData: ERROR: Check server logs for details' },
-    // }
+      {
+        log: `eventController.getApiData: ERROR: ${typeof err === 'object' ? JSON.stringify(err) : err}`,
+        message: { err: 'eventController.getApiData: ERROR: Check server logs for details' },
+      }
     );
   }
 };
 
-
-// EXPORT THE CONTROLLER HERE
 module.exports = eventController;
