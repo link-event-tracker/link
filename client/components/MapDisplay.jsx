@@ -55,5 +55,5 @@ const MapDisplay = ({
 };
 
 export default GoogleApiWrapper({
-  apiKey: process.env.REACT_APP_GOOGLE_MAPS_KEY
+  apiKey: ''
 })(MapDisplay);
