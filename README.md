@@ -2,7 +2,7 @@
 
 ## Local event tracker
 
-<img src='./github-media/link-demo.gif' width=90% height=90% alt='Link application demo' />
+<img src='./github-media/link-demo.gif' width=100% height=100% alt='Link application demo' />
 
 This application uses the Ticketmaster and Google Maps APIs to provide information about events from any US zip code. Events can be filtered by type (Music, Sports, Arts & Theatre, Family, and/or Film). In order to use the app, you will need to provide your own API keys.
 
